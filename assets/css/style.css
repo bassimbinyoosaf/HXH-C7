@@ -1,0 +1,590 @@
+/* ===== HUNTER × HUNTER THEME ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
+:root {
+    --hunter-gold: #f0c040;
+    --hunter-gold-dark: #c9a030;
+    --hunter-green: #2ecc71;
+    --hunter-red: #e74c3c;
+    --hunter-dark: #0a0a0f;
+    --hunter-darker: #060608;
+    --hunter-card: #12121e;
+    --hunter-card-hover: #1a1a2e;
+    --hunter-border: #2a2a4a;
+    --hunter-text: #e8e8f0;
+    --hunter-muted: #8888aa;
+    --nen-aura: rgba(240, 192, 64, 0.1);
+    --nen-glow: rgba(240, 192, 64, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--hunter-dark);
+    color: var(--hunter-text);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(240, 192, 64, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(240, 192, 64, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(240, 192, 64, 0.03) 0%, transparent 50%),
+        var(--hunter-dark);
+    z-index: -1;
+}
+
+/* ===== NEN PARTICLES ===== */
+body::after {
+    content: '✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 20px;
+    color: rgba(240, 192, 64, 0.03);
+    z-index: -1;
+    animation: floatParticles 60s linear infinite;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes floatParticles {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.98) 0%, rgba(18, 18, 30, 0.95) 100%) !important;
+    border-bottom: 2px solid var(--hunter-gold);
+    box-shadow: 0 4px 30px rgba(240, 192, 64, 0.15);
+    padding: 12px 0;
+    backdrop-filter: blur(20px);
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--hunter-gold) !important;
+    text-shadow: 0 0 30px rgba(240, 192, 64, 0.3);
+    letter-spacing: 2px;
+}
+
+.navbar-brand:hover {
+    color: #fff !important;
+    text-shadow: 0 0 40px rgba(240, 192, 64, 0.5);
+}
+
+.navbar-brand img {
+    filter: drop-shadow(0 0 20px rgba(240, 192, 64, 0.3));
+}
+
+/* ===== HUNTER RANK BADGES ===== */
+.rank-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid;
+    transition: all 0.3s ease;
+}
+
+.rank-legendary {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    color: #1a1a2e;
+    border-color: #f1c40f;
+    box-shadow: 0 0 30px rgba(241, 196, 15, 0.3);
+    animation: pulseGold 2s infinite;
+}
+
+.rank-elite {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    border-color: #3498db;
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+}
+
+.rank-pro {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: #fff;
+    border-color: #2ecc71;
+}
+
+.rank-novice {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    color: #fff;
+    border-color: #95a5a6;
+}
+
+@keyframes pulseGold {
+    0%, 100% { box-shadow: 0 0 30px rgba(241, 196, 15, 0.3); }
+    50% { box-shadow: 0 0 60px rgba(241, 196, 15, 0.6); }
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: linear-gradient(145deg, var(--hunter-card), var(--hunter-darker));
+    border: 1px solid var(--hunter-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--hunter-gold), var(--hunter-gold-dark), var(--hunter-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6), 0 0 30px var(--nen-aura);
+    border-color: var(--hunter-gold);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-header {
+    background: linear-gradient(135deg, rgba(240, 192, 64, 0.1), rgba(240, 192, 64, 0.02));
+    border-bottom: 1px solid var(--hunter-border);
+    padding: 16px 24px;
+    font-weight: 700;
+    color: var(--hunter-gold);
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+/* ===== STAT CARDS ===== */
+.stat-card {
+    background: linear-gradient(145deg, rgba(18, 18, 30, 0.9), rgba(10, 10, 15, 0.9));
+    border: 1px solid var(--hunter-border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--nen-aura), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--hunter-gold);
+    box-shadow: 0 8px 32px var(--nen-aura);
+}
+
+.stat-card:hover::after {
+    opacity: 1;
+}
+
+.stat-card .stat-icon {
+    font-size: 2.5rem;
+    color: var(--hunter-gold);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.stat-card .stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 30px var(--nen-glow);
+}
+
+.stat-card .stat-label {
+    color: var(--hunter-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.stat-card .stat-sub {
+    font-size: 0.8rem;
+    color: var(--hunter-muted);
+    margin-top: 4px;
+}
+
+/* ===== TABLES ===== */
+.table-hunter {
+    background: transparent;
+}
+
+.table-hunter thead {
+    background: linear-gradient(135deg, rgba(240, 192, 64, 0.1), rgba(240, 192, 64, 0.02));
+}
+
+.table-hunter thead th {
+    color: var(--hunter-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    padding: 16px 12px;
+    border-bottom: 2px solid var(--hunter-gold);
+}
+
+.table-hunter tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(42, 42, 74, 0.3);
+}
+
+.table-hunter tbody tr:hover {
+    background: rgba(240, 192, 64, 0.05);
+    transform: scale(1.01);
+}
+
+.table-hunter tbody td {
+    padding: 14px 12px;
+    vertical-align: middle;
+}
+
+/* ===== BADGES ===== */
+.badge-status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.badge-status.active {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.badge-status.pending {
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+
+.badge-status.completed {
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+.badge-status.failed {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.badge-classification {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+}
+
+.badge-classification.top-secret {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    animation: pulseRed 2s infinite;
+}
+
+.badge-classification.confidential {
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+
+.badge-classification.hunter-only {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.badge-classification.public {
+    background: rgba(149, 165, 166, 0.2);
+    color: #95a5a6;
+    border: 1px solid #95a5a6;
+}
+
+@keyframes pulseRed {
+    0%, 100% { box-shadow: 0 0 10px rgba(231, 76, 60, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(231, 76, 60, 0.4); }
+}
+
+/* ===== BUTTONS ===== */
+.btn-hunter {
+    background: linear-gradient(135deg, var(--hunter-gold), var(--hunter-gold-dark));
+    color: var(--hunter-darker);
+    font-weight: 700;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.btn-hunter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240, 192, 64, 0.3);
+    color: var(--hunter-darker);
+}
+
+.btn-hunter-outline {
+    background: transparent;
+    color: var(--hunter-gold);
+    border: 2px solid var(--hunter-gold);
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.btn-hunter-outline:hover {
+    background: var(--hunter-gold);
+    color: var(--hunter-darker);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240, 192, 64, 0.3);
+}
+
+/* ===== LOGIN PAGE SPECIAL ===== */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(240, 192, 64, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(240, 192, 64, 0.03) 0%, transparent 60%),
+        var(--hunter-darker);
+    position: relative;
+}
+
+.login-container::before {
+    content: 'HUNTER × HUNTER';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Orbitron', monospace;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(240, 192, 64, 0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 20px;
+}
+
+.login-card {
+    background: linear-gradient(145deg, rgba(18, 18, 30, 0.95), rgba(10, 10, 15, 0.98));
+    border: 1px solid var(--hunter-border);
+    border-radius: 20px;
+    padding: 48px;
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 60px var(--nen-aura);
+}
+
+.login-card .login-logo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-card .login-logo i {
+    font-size: 4rem;
+    color: var(--hunter-gold);
+    text-shadow: 0 0 60px rgba(240, 192, 64, 0.3);
+}
+
+.login-card .login-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    color: var(--hunter-gold);
+    font-size: 1.8rem;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.login-card .login-subtitle {
+    text-align: center;
+    color: var(--hunter-muted);
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+}
+
+.login-card .form-control {
+    background: rgba(10, 10, 15, 0.6);
+    border: 1px solid var(--hunter-border);
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.login-card .form-control:focus {
+    background: rgba(10, 10, 15, 0.8);
+    border-color: var(--hunter-gold);
+    box-shadow: 0 0 30px rgba(240, 192, 64, 0.1);
+    color: #fff;
+}
+
+.login-card .form-control::placeholder {
+    color: var(--hunter-muted);
+}
+
+/* ===== PROFILE AVATAR ===== */
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--hunter-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--hunter-gold);
+    background: linear-gradient(135deg, rgba(240, 192, 64, 0.1), rgba(10, 10, 15, 0.9));
+    margin: 0 auto 16px;
+    box-shadow: 0 0 40px var(--nen-aura);
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px rgba(240, 192, 64, 0.2);
+}
+
+/* ===== MISSION CLASSIFICATION ICONS ===== */
+.mission-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+/* ===== ANIMATED HUNTER LICENSE ===== */
+.license-plate {
+    background: linear-gradient(135deg, var(--hunter-gold), var(--hunter-gold-dark));
+    color: var(--hunter-darker);
+    padding: 4px 16px;
+    border-radius: 4px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-card {
+    background: linear-gradient(180deg, rgba(18, 18, 30, 0.95), rgba(10, 10, 15, 0.98));
+    border: 1px solid var(--hunter-border);
+    border-radius: 16px;
+    padding: 24px 16px;
+}
+
+.sidebar-card .nav-link {
+    color: var(--hunter-muted);
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.sidebar-card .nav-link:hover {
+    background: rgba(240, 192, 64, 0.05);
+    color: var(--hunter-gold);
+    transform: translateX(4px);
+}
+
+.sidebar-card .nav-link.active {
+    background: rgba(240, 192, 64, 0.1);
+    color: var(--hunter-gold);
+    border-left: 3px solid var(--hunter-gold);
+}
+
+.sidebar-card .nav-link i {
+    margin-right: 12px;
+    width: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 32px 24px;
+        margin: 20px;
+    }
+    
+    .stat-card .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--hunter-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--hunter-gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hunter-gold-dark);
+}

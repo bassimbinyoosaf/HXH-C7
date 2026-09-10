@@ -1,0 +1,1 @@
+<?php // Credentials stored elsewhere ?>
