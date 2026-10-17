@@ -96,3 +96,8 @@ HXH-C7/
 To fix the IDOR vulnerability in production systems:
 1. **Enforce Authorization Checks**: Ensure `$_SESSION['user_id'] === $id_param` or verify that the authenticated user possesses administrative clearance before returning records.
 2. **Use Indirect Object References**: Use cryptographically secure session-bound tokens or UUIDs instead of sequential numerical IDs.
+
+---
+
+## Walkthrough
+The challenge flow is documented in the files present in this repository (see `WALKTHROUGH` files and source code).
