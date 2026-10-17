@@ -10,7 +10,7 @@ An anime-themed web exploitation CTF challenge featuring the **Hunter Associatio
 - **Difficulty**: Medium
 - **Flag**: `SSP{WEB_IDOR_2A91FC7D}`
 - **Theme**: Hunter × Hunter Anime (Emerald Nen Glow, Dark Anime Cyber-Terminal, Chairman Netero & Gon Freecss)
-- **Port**: `3001` (Web) / `3307` (MariaDB)
+- **Port**: `30007` (Web) / `3307` (MariaDB)
 
 ---
 
@@ -24,7 +24,7 @@ docker-compose up -d --build
 ```
 
 Access the challenge at:
-👉 **`http://localhost:3001`** (or `http://<SERVER_IP>:3001`)
+👉 **`http://localhost:30007`** (or `http://<SERVER_IP>:30007`)
 
 To stop the containers:
 ```bash
@@ -53,7 +53,7 @@ docker-compose down -v
 * Fuzzing candidate Hunter IDs from `1` to `18` allows reading confidential dossiers of all registered Hunters.
 
 ### 4. Flag Capture
-* Navigating to **`http://localhost:3001/user_panel.php?id=13`** loads the profile of **Gon Freecss** (`HUNTER-LIC-0013`).
+* Navigating to **`http://localhost:30007/user_panel.php?id=13`** loads the profile of **Gon Freecss** (`HUNTER-LIC-0013`).
 * His confidential classification record exposes the true flag:
   `SSP{WEB_IDOR_2A91FC7D}`
 
