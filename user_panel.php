@@ -13,7 +13,7 @@ requireLogin();
 $id_param = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Get all hunters for dropdown - ONLY show decoy users
-$stmt = $pdo->query("SELECT id, username, secret_flag FROM hunters WHERE 
+$stmt = $pdo->query("SELECT id, username FROM hunters WHERE 
     username IN ('admin_system', 'admin_network', 'admin_phantom', 'admin_troupe')
     ORDER BY username");
 $hunters = $stmt->fetchAll();
@@ -425,6 +425,18 @@ function getRankColor($rank) {
                 <?php if ($id_param > 0 && isset($selected_hunter)): ?>
                     <?php 
                     $flag_value = isset($selected_hunter['secret_flag']) ? $selected_hunter['secret_flag'] : '';
+
+                    // Target Hunter: Gon Freecss (ID 13) - Fetch flag from flag.php vault
+                    if ((int)$selected_hunter['id'] === 13 || $selected_hunter['username'] === 'gon_freecss') {
+                        if (!defined('INTERNAL_FLAG_ACCESS')) {
+                            define('INTERNAL_FLAG_ACCESS', true);
+                        }
+                        require_once __DIR__ . '/flag.php';
+                        if (function_exists('get_classified_flag')) {
+                            $flag_value = get_classified_flag();
+                        }
+                    }
+
                     $is_fake = ($flag_value === 'SSP{FAKE_FLAG_1337}' || $flag_value === 'SSP{FAKE_FLAG_9999}');
                     $is_troll = ($flag_value === 'SSP{PRANKED_YOU_LOL}' || $flag_value === 'SSP{KEEP_TRYING_HUNTER}');
                     $has_flag = !empty($flag_value) && !$is_fake && !$is_troll;

@@ -3,7 +3,7 @@ services:
     build: .
     container_name: hunter-ctf-web
     ports:
-      - "3001:3001"
+      - "30007:3001"
     volumes:
       - ./:/var/www/html/
     depends_on:

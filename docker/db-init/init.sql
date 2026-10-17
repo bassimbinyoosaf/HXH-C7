@@ -50,7 +50,7 @@ INSERT INTO hunters (id, username, password_hash, email, hunter_rank, hunter_lic
 (10, 'admin_database', '$2y$12$fmDbd3.Jf.d9GtZKbNUVa.d7Hf.7ksGykgK/z.9KVxbT0UsOLt5/y', 'database@hunter-assoc.org', 'Pro', 'HUNTER-LIC-0010', 'Database Management', 4, 'SSP{NICE_TRY_404}'),
 (11, 'admin_phantom', '$2y$12$kshb10htlkJ.YhwdLc4U5OlpMhQAfrpHW2Yw1ywRudfX.8GvlukRC', 'phantom@hunter-assoc.org', 'Novice', 'HUNTER-LIC-0011', 'Undercover Operations', 2, 'SSP{FAKE_FLAG_1337}'),
 (12, 'admin_troupe', '$2y$12$V.mrHeeT925oaLtKNZOgdeY4yylbKbu7DULQLXehWGSQJfMNbz156', 'troupe@hunter-assoc.org', 'Novice', 'HUNTER-LIC-0012', 'Surveillance', 1, 'SSP{FAKE_FLAG_9999}'),
-(13, 'gon_freecss', '$2y$12$OF4dbQmcKG/OXOHZgVM4t./zSQQWV5GramGPniURuhOsVneXFI99y', 'gon@hunter-assoc.org', 'Pro', 'HUNTER-LIC-0013', 'Greed Island investigation', 3, 'SSP{WEB_IDOR_2A91FC7D}'),
+(13, 'gon_freecss', '$2y$12$OF4dbQmcKG/OXOHZgVM4t./zSQQWV5GramGPniURuhOsVneXFI99y', 'gon@hunter-assoc.org', 'Pro', 'HUNTER-LIC-0013', 'Greed Island investigation', 3, NULL),
 (14, 'kurapika_curse', '$2y$12$DS2Sy3OOfUnbLe395iHI/OOAFPBKoyCcEwhzPULok7t96zpwePEKy', 'kurapika@hunter-assoc.org', 'Elite', 'HUNTER-LIC-0014', 'Phantom Troupe tracking', 4, 'SSP{WARMER_BUT_NO}'),
 (15, 'leorio_medic', '$2y$12$x7OFWebOSXP7pxCayq9NmO5ZqHCC0WMXAwOdwwrpECI3E8jtGIxbG', 'leorio@hunter-assoc.org', 'Pro', 'HUNTER-LIC-0015', 'Medical operations', 3, 'SSP{TRY_AGAIN_NOOB}'),
 (16, 'hisoka_magic', '$2y$12$fmDbd3.Jf.d9GtZKbNUVa.d7Hf.7ksGykgK/z.9KVxbT0UsOLt5/y', 'hisoka@hunter-assoc.org', 'Elite', 'HUNTER-LIC-0016', 'Special intelligence', 4, NULL),
